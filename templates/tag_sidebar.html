@@ -1,0 +1,15 @@
+<h5>Тэги</h5>
+
+<ul class="side-nav">
+
+    {% for tag in tags %}
+
+    <li>
+        <a href="{{ tag.get_absolute_url }}">
+            {{ tag.name }} ({{ tag.post_set.count }})
+        </a>
+    </li>
+
+    {% endfor %}
+
+</ul>

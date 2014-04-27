@@ -1,0 +1,90 @@
+{% extends 'foundation/base.html' %}
+{% load foundation_tags %}
+{% load category_sidebar %}
+{% load tag_sidebar %}
+
+{% block title %}{% if title %}{{ title }}{% else %}Мой блог{% endif %}{% endblock %}
+
+{% block head_js %}
+<script type="text/javascript" src="{{ STATIC_URL }}js/likes.js"></script>
+{% endblock head_js %}
+
+{% block foundation_modernizer %}
+{% foundation_vendor "modernizr" %}
+{% foundation_vendor "jquery" %}
+{% endblock foundation_modernizer %}
+
+{% block base_body %}
+
+    <!-- Nav Bar -->
+ 
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="nav-bar right">
+       <ul class="button-group">
+         <li><a href="/" class="button">Главная</a></li>
+         <li><a href="#" class="button">Link 2</a></li>
+         <li><a href="#" class="button">Link 3</a></li>
+         <li><a href="#" class="button">Link 4</a></li>
+        </ul>
+      </div>
+      <h1><a href="/">Блог</a> <small>This is my blog.</small></h1>
+      <hr />
+    </div>
+  </div>
+ 
+  <!-- End Nav -->
+ 
+ 
+  <!-- Main Page Content and Sidebar -->
+ 
+  <div class="row">
+ 
+    <!-- Main Blog Content -->
+    <div class="large-9 columns" role="content">
+ 
+    {% block content %}{% endblock content %}
+ 
+    </div>
+
+    <!-- End Main Content -->
+ 
+ 
+    <!-- Sidebar -->
+ 
+    <aside class="large-3 columns">
+ 
+      {% show_category_sidebar %}
+
+      {% show_tag_sidebar %}
+ 
+    </aside>
+ 
+    <!-- End Sidebar -->
+  </div>
+ 
+  <!-- End Main Content and Sidebar -->
+ 
+ 
+  <!-- Footer -->
+ 
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+          <p>© Все права правы.</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="/" class="button">Главная</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+            <li><a href="#">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+{% endblock base_body %}
